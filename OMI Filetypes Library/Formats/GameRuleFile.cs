@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO.Compression;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using OMI.Workers.GameRule;
 
 namespace OMI.Formats.GameRule
