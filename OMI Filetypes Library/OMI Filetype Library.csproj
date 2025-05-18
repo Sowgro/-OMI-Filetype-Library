@@ -1,103 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{693AEBC1-293D-4DF0-BCAE-26A1099FE7BB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OMI</RootNamespace>
     <LangVersion>latest</LangVersion>
     <AssemblyName>OMI Filetypes</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <Configurations>Beta;Debug;Release</Configurations>
+    <AssemblyTitle>OMI Filetypes</AssemblyTitle>
+    <Product>OMI Filetypes</Product>
+    <Copyright>Copyright ©  2022</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\.nuget\packages\newtonsoft.json\13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.0-preview.4.25258.110" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Endianness.cs" />
-    <Compile Include="Extentions\EndiannessAwareBinaryExtention.cs" />
-    <Compile Include="Formats\BehaviourFile.cs" />
-    <Compile Include="Formats\PckAssetType.cs" />
-    <Compile Include="Formats\PckAsset.cs" />
-    <Compile Include="Formats\FourjUserInterface.cs" />
-    <Compile Include="Formats\GameRuleFile.cs" />
-    <Compile Include="Formats\Languages.cs" />
-    <Compile Include="EndiannessAwareBinaryReader.cs" />
-    <Compile Include="EndiannessAwareBinaryWriter.cs" />
-    <Compile Include="Formats\ModelNotFoundException.cs" />
-    <Compile Include="Formats\PckFile.cs" />
-    <Compile Include="Formats\PckAssetCollection.cs" />
-    <Compile Include="Formats\PckFileProperties.cs" />
-    <Compile Include="Workers\ArchiveWorker\ARCFileReader.cs" />
-    <Compile Include="Workers\ArchiveWorker\ARCFileWriter.cs" />
-    <Compile Include="Formats\Archive.cs" />
-    <Compile Include="Workers\Behaviour\BehavioursReader.cs" />
-    <Compile Include="Workers\Behaviour\BehavioursWriter.cs" />
-    <Compile Include="Workers\ColorWorker\COLFileWriter.cs" />
-    <Compile Include="Workers\ColorWorker\COLFileReader.cs" />
-    <Compile Include="Formats\Color.cs" />
-    <Compile Include="Workers\FourjUIWorker\FourjUIReader.cs" />
-    <Compile Include="Workers\FourjUIWorker\FourjUIWriter.cs" />
-    <Compile Include="Workers\GameRuleWorker\CRC32.cs" />
-    <Compile Include="Workers\GameRuleWorker\GameRuleFileHeader.cs" />
-    <Compile Include="Workers\GameRuleWorker\GameRuleFileReader.cs" />
-    <Compile Include="Workers\GameRuleWorker\GameRuleFileWriter.cs" />
-    <Compile Include="Workers\GameRuleWorker\LzxDecoder.cs" />
-    <Compile Include="Workers\GameRuleWorker\RLE.cs" />
-    <Compile Include="Workers\GameRuleWorker\XMemDecompress.cs" />
-    <Compile Include="Workers\IDataFormatReader.cs" />
-    <Compile Include="Workers\IDataFormatWriter.cs" />
-    <Compile Include="Workers\LanguageWorker\LOCFileReader.cs" />
-    <Compile Include="Workers\LanguageWorker\LOCFileWriter.cs" />
-    <Compile Include="Workers\MaterialWorker\MaterialFileWriter.cs" />
-    <Compile Include="Workers\MaterialWorker\MaterialFileReader.cs" />
-    <Compile Include="Formats\Material.cs" />
-    <Compile Include="Workers\ModelsWorker\ModelFileWriter.cs" />
-    <Compile Include="Workers\ModelsWorker\ModelFileReader.cs" />
-    <Compile Include="Formats\Model.cs" />
-    <Compile Include="Workers\PckWorker\PckFileReader.cs" />
-    <Compile Include="Workers\PckWorker\PckFileWriter.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="SharpZipLib">
-      <Version>1.4.2</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
